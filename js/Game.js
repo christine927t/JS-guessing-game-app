@@ -16,11 +16,11 @@ class Game{
      */
     createPhrases(){
         let phrases = [
-            {phrase: 'You win some you lose some'},
+            {phrase: 'could i be wearing anymore clothes'},
             {phrase: 'how you doin'},
-            {phrase: 'phrase 3'},
-            {phrase: 'phrase 4'},
-            {phrase: 'phrase 5'}
+            {phrase: 'we were on a break'},
+            {phrase: 'i got off the plane'},
+            {phrase: 'it tastes like feet'}
         ]
         return phrases;
     }
@@ -43,14 +43,15 @@ class Game{
     startGame(){
         //hide the overlay div
         document.getElementById('overlay').style.display = 'none';
-        let randPhrase = this.getRandomPhrase();
         //sets activePhrase to getRandomPhrase method call;
+        let randPhrase = this.getRandomPhrase();
+        //sets this.activePhrase to the new random Phrase
         this.activePhrase = randPhrase;
-        console.log(this.activePhrase)
-        //const phrase = new Phrase(this.activePhrase.phrase);
-        randPhrase.this.addPhraseToDisplay();
-        //sets activePhrase property to a random phrase
-        //calls addPhraseToDisplay on the active phrase
+        //sets phrase to new instance of Phrase class - is this necessary?
+        let phrase = new Phrase(randPhrase.phrase);
+        //calls addPhraseToDisplay on new phrase 
+        phrase.addPhraseToDisplay();
+        console.log(phrase)
 
     
     }
