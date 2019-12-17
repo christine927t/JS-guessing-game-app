@@ -43,16 +43,15 @@ class Game{
     startGame(){
         //hide the overlay div
         document.getElementById('overlay').style.display = 'none';
-        //sets activePhrase to getRandomPhrase method call;
-        let randPhrase = this.getRandomPhrase();
-        //sets this.activePhrase to the new random Phrase
-        this.activePhrase = randPhrase;
-        //sets phrase to new instance of Phrase class - is this necessary?
-        let phrase = new Phrase(randPhrase.phrase);
-        //calls addPhraseToDisplay on new phrase 
-        phrase.addPhraseToDisplay();
-        console.log(phrase)
+        let newPhrase;
+        this.activePhrase = newPhrase;
+        console.log(newPhrase)
+        newPhrase.phrase.addPhraseToDisplay();
+        console.log(newPhrase)
+    }
 
-    
+    handleInteraction(){
+
+
     }
 }

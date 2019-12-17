@@ -14,8 +14,9 @@
 
     addPhraseToDisplay(){
         const phraseUl = document.querySelector('ul');
-        let letter = game.getRandomPhrase();
-        let ltrspl = letter.phrase.split('');
+        //let letter = game.getRandomPhrase();
+        let newPhrase = this.phrase;
+        let ltrspl = newPhrase.phrase.split('');
 
         ltrspl.forEach(ltr => {
             const letterLi = document.createElement('li');
@@ -30,11 +31,29 @@
         
     }
 
+    /**
+     * Checks if passed letter is in phrase
+     * @param {string} letter - letter to check
+     */
+
+    checkLetter(letter){
+        //checks to see if the letter selected by player matches
+        //a letter in the phrase
+
+    }
+
+     /**
+      * Displays passed letter on screen after a
+      * match is found
+      * @param {string} letter = letter to display
+      */
+
+    showMatchedLetter(letter){
+        //reveals the letters on the board that match the player's
+        //selection. 
+
+
+    }
  }
 
- //to get letters attached to LIs
- //once we get the phrase
- //parse it out somehow (some kind of loop)
- //grab each letter and space
- //make new li for each letter and space (append to phraseUl)
- //add class name to each li matching letter or space
+
