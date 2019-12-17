@@ -34,4 +34,24 @@ class Game{
         let randNum = Math.floor(Math.random() * 4)
         return this.phrases[randNum];
     }
+
+    /**
+     * Begins game by selecting a random phrase and displaying
+     * it to user
+     */
+
+    startGame(){
+        //hide the overlay div
+        document.getElementById('overlay').style.display = 'none';
+        let randPhrase = this.getRandomPhrase();
+        //sets activePhrase to getRandomPhrase method call;
+        this.activePhrase = randPhrase;
+        console.log(this.activePhrase)
+        //const phrase = new Phrase(this.activePhrase.phrase);
+        randPhrase.this.addPhraseToDisplay();
+        //sets activePhrase property to a random phrase
+        //calls addPhraseToDisplay on the active phrase
+
+    
+    }
 }
