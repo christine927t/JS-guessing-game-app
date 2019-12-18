@@ -5,7 +5,6 @@
  class Phrase {
     constructor(phrase){
         this.phrase = phrase.toLowerCase();
-
     }
 
     /**
@@ -14,9 +13,8 @@
 
     addPhraseToDisplay(){
         const phraseUl = document.querySelector('ul');
-        //let letter = game.getRandomPhrase();
         let newPhrase = this.phrase;
-        let ltrspl = newPhrase.phrase.split('');
+        let ltrspl = newPhrase.split('');
 
         ltrspl.forEach(ltr => {
             const letterLi = document.createElement('li');

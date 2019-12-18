@@ -32,7 +32,7 @@ class Game{
 
     getRandomPhrase(){
         let randNum = Math.floor(Math.random() * 4)
-        return this.phrases[randNum];
+        return new Phrase(this.phrases[randNum].phrase);
     }
 
     /**
@@ -45,10 +45,9 @@ class Game{
         document.getElementById('overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         console.log(this.activePhrase);
+        this.activePhrase.addPhraseToDisplay();
         console.log(`Active Phrase - phrase: ${this.activePhrase.phrase}`);
 
-        this.activePhrase.phrase.addPhraseToDisplay();
-        //console.log(newPhrase)
 
     }
 
