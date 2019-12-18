@@ -37,6 +37,13 @@
     checkLetter(letter){
         //checks to see if the letter selected by player matches
         //a letter in the phrase
+        let keys = document.getElementsByClassName('key')
+        console.log(keys)
+
+        keys.addEventListener('click', function(){
+            console.log(keys)
+        })
+
 
     }
 
