@@ -43,11 +43,13 @@ class Game{
     startGame(){
         //hide the overlay div
         document.getElementById('overlay').style.display = 'none';
-        let newPhrase;
-        this.activePhrase = newPhrase;
-        console.log(newPhrase)
-        newPhrase.phrase.addPhraseToDisplay();
-        console.log(newPhrase)
+        this.activePhrase = this.getRandomPhrase();
+        console.log(this.activePhrase);
+        console.log(`Active Phrase - phrase: ${this.activePhrase.phrase}`);
+
+        this.activePhrase.phrase.addPhraseToDisplay();
+        //console.log(newPhrase)
+
     }
 
     handleInteraction(){
