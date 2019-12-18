@@ -34,18 +34,34 @@
      * @param {string} letter - letter to check
      */
 
-    checkLetter(letter){
-        //checks to see if the letter selected by player matches
-        //a letter in the phrase
-        let keys = document.getElementsByClassName('key')
-        console.log(keys)
+    // checkLetter(letter){
+    //     let phrase = game.activePhrase.phrase;
+    //     let phrasesplt = phrase.split('');
+    //     console.log(phrasesplt)
+    //     let keys = document.getElementById('qwerty')
+    //     keys.addEventListener('click', function(event){
+    //         const isButton = event.target.nodeName === 'BUTTON';
+    //         let clicked = event.target;
 
-        keys.addEventListener('click', function(){
-            console.log(keys)
-        })
+    //         if (isButton) {
+    //             
+    //         }
+    //     })
+    // }
 
+        checkLetter(letter){
+            let phrase = game.activePhrase.phrase;
+            let phraseSplit = phrase.split('');
+            if(phraseSplit.indexOf(letter) >= 0){
+                console.log('match')
+                return true;
+            }
+            else {
+                console.log('non-match')
+                return false;
+            }
+        }
 
-    }
 
      /**
       * Displays passed letter on screen after a
@@ -54,11 +70,17 @@
       */
 
     showMatchedLetter(letter){
-        //reveals the letters on the board that match the player's
-        //selection. 
+        let phrase = game.activePhrase.phrase;
+        let phraseSplit = phrase.split('');
+        let letterElements = document.getElementsByClassName(`${letter}`);
 
-
+        console.log(letterElements)
+        letterElements.replace('hide', 'show');
+    
     }
+
  }
+
+ //game.activePhrase.showMatchedLetter('a')
 
 
