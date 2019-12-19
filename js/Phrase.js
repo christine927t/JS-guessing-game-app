@@ -73,9 +73,15 @@
         let phrase = game.activePhrase.phrase;
         let phraseSplit = phrase.split('');
         let letterElements = document.getElementsByClassName(`${letter}`);
-
         console.log(letterElements)
-        letterElements.replace('hide', 'show');
+        while (letterElements[0]){        
+            letterElements[0].classList.replace('hide','show');
+   
+            // letterElements[0].classList.remove('hide');
+            // letterElements[0].classList.add('show');
+            break;
+        }
+        //letterElements.replace('hide', 'show');
     
     }
 
