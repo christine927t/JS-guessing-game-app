@@ -74,17 +74,10 @@
         let phraseSplit = phrase.split('');
         let letterElements = document.getElementsByClassName(`${letter}`);
         console.log(letterElements)
-        while (letterElements[0]){        
-            letterElements[0].classList.replace('hide','show');
-   
-            // letterElements[0].classList.remove('hide');
-            // letterElements[0].classList.add('show');
-            break;
+        for (let i = 0; i < letterElements.length; i++){
+            letterElements[i].classList.replace('hide','show');
         }
-        //letterElements.replace('hide', 'show');
-    
     }
-
  }
 
  //game.activePhrase.showMatchedLetter('a')
