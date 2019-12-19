@@ -72,17 +72,30 @@ class Game{
     */
 
     removeLife(){
-        const tries = document.getElementsByClassName('tries')
-        console.log(tries)
-        //if checkLetter returns false, remove a life (heart)
-        if (this.activePhrase.checkLetter() === false){
-            //increment missed property by 1
-            this.missed += 1;
-            console.log(this.missed)
-            tries[1].innerHTML = "<img src='images/lostHeart.png' alt='Heart Icon' height='35' width='30'>"
-            console.log(tries)
+        const liveHearts = document.getElementsByClassName('tries')
+        let arrLive = [...liveHearts];
+        console.log(arrLive)
+        let firstLive;
+
+        function findLiveHearts(live){
+            return live.innerHTML = "<img src='images/liveHeart.png' alt='Heart Icon' height='35' width='30'>"
         }
-        
+        firstLive = arrLive.find(findLiveHearts)
+
+        // if (this.activePhrase.checkLetter() === false){
+        //     if(this.missed <= 5){
+        //         for (let i = 0; i < liveHearts.length; i++){
+        //             liveHearts[i].innerHTML = "<img src='images/lostHeart.png' alt='Heart Icon' height='35' width='30'>"
+        //             console.log(liveHearts)
+        //             this.missed += 1;
+        //             console.log(this.missed)
+        //         }
+        //     }
+        //     else {
+        //         this.gameOver();
+        //     }
+        // }
+
     }
 
     /**
