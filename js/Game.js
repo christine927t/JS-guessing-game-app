@@ -72,37 +72,28 @@ class Game{
     */
 
     removeLife(){
-        const liveHearts = document.getElementsByClassName('tries')
-        //changes li.tries to array
-        let arrLive = [...liveHearts];
-        let firstLive;
+        if(this.missed <= 5){
+            const liveHearts = document.getElementsByClassName('tries')
+            //converts liveHearts HTML collection to array
+            let arrLive = [...liveHearts];
+            let firstLive;
+            this.missed += 1;
+            console.log(this.missed)
 
-        function findLiveHearts(live){
-            return live.innerHTML = "<img src='images/liveHeart.png' alt='Heart Icon' height='35' width='30'>";
-            console.log(live)
+            function findLiveHearts(live){
+                return live.innerHTML = "<img src='images/liveHeart.png' alt='Heart Icon' height='35' width='30'>";
+            }
+            firstLive = arrLive.find(findLiveHearts)
+            console.log(firstLive) 
+            let string = firstLive.innerHTML
+            let replace = string.replace("liveHeart", "lostHeart");
+            firstLive.innerHTML = `${replace}`;
+            console.log(replace)
+        }    
+        else {
+            this.gameOver();
         }
-        firstLive = arrLive.find(findLiveHearts)
-        console.log(firstLive)
-        let string = firstLive.innerHTML
-        let replace = string.replace("liveHeart", "lostHeart");
-        console.log(replace)
-        string = replace;    
-        console.log(string); 
-
-        // if (this.activePhrase.checkLetter() === false){
-        //     if(this.missed <= 5){
-        //         for (let i = 0; i < liveHearts.length; i++){
-        //             liveHearts[i].innerHTML = "<img src='images/lostHeart.png' alt='Heart Icon' height='35' width='30'>"
-        //             console.log(liveHearts)
-        //             this.missed += 1;
-        //             console.log(this.missed)
-        //         }
-        //     }
-        //     else {
-        //         this.gameOver();
-        //     }
-        // }
-
+ 
     }
 
     /**
