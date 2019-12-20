@@ -73,14 +73,21 @@ class Game{
 
     removeLife(){
         const liveHearts = document.getElementsByClassName('tries')
+        //changes li.tries to array
         let arrLive = [...liveHearts];
-        console.log(arrLive)
         let firstLive;
 
         function findLiveHearts(live){
-            return live.innerHTML = "<img src='images/liveHeart.png' alt='Heart Icon' height='35' width='30'>"
+            return live.innerHTML = "<img src='images/liveHeart.png' alt='Heart Icon' height='35' width='30'>";
+            console.log(live)
         }
         firstLive = arrLive.find(findLiveHearts)
+        console.log(firstLive)
+        let string = firstLive.innerHTML
+        let replace = string.replace("liveHeart", "lostHeart");
+        console.log(replace)
+        string = replace;    
+        console.log(string); 
 
         // if (this.activePhrase.checkLetter() === false){
         //     if(this.missed <= 5){
