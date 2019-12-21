@@ -34,33 +34,16 @@
      * @param {string} letter - letter to check
      */
 
-    // checkLetter(letter){
-    //     let phrase = game.activePhrase.phrase;
-    //     let phrasesplt = phrase.split('');
-    //     console.log(phrasesplt)
-    //     let keys = document.getElementById('qwerty')
-    //     keys.addEventListener('click', function(event){
-    //         const isButton = event.target.nodeName === 'BUTTON';
-    //         let clicked = event.target;
-
-    //         if (isButton) {
-    //             
-    //         }
-    //     })
-    // }
-
-        checkLetter(letter){
-            let phrase = game.activePhrase.phrase;
-            let phraseSplit = phrase.split('');
-            if(phraseSplit.indexOf(letter) >= 0){
-                console.log('match')
-                return true;
-            }
-            else {
-                console.log('non-match')
-                return false;
-            }
+    checkLetter(letter){
+        let phrase = game.activePhrase.phrase;
+        let phraseSplit = phrase.split('');
+        if(phraseSplit.indexOf(letter) >= 0){
+            return true;
         }
+        else {
+            return false;
+        }
+    }
 
 
      /**
@@ -73,13 +56,12 @@
         let phrase = game.activePhrase.phrase;
         let phraseSplit = phrase.split('');
         let letterElements = document.getElementsByClassName(`${letter}`);
-        console.log(letterElements)
         for (let i = 0; i < letterElements.length; i++){
             letterElements[i].classList.replace('hide','show');
-        }
+        }    
     }
+
  }
 
- //game.activePhrase.showMatchedLetter('a')
 
 

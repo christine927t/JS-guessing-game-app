@@ -10,9 +10,8 @@ document.getElementById('btn__reset').addEventListener('click', function(){
     game.startGame();
 })
 
-
-// document.querySelectorAll('.keyrow button').addEventListener('click', function(){
-
-
-
-// })
+document.getElementById('qwerty').addEventListener('click', function(e){
+    if (e.target && e.target.nodeName == 'BUTTON'){
+        game.handleInteraction(e.target);
+    }
+})

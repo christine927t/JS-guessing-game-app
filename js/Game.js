@@ -41,6 +41,20 @@ class Game{
      */
 
     startGame(){
+        //remove all 'li' elements in 'ul'
+        let phraseLetters = document.querySelectorAll('ul li');
+        console.log(phraseLetters)
+        if (phraseLetters.length > 0){
+            phraseLetters.style.display = 'none';
+            //enable all buttons
+            const button = document.getElementsByClassName('key')
+            button.disabled = false;
+            // update classes to 'key'
+            button.classList = 'key';
+            //reset heart images
+            const liveHearts = document.getElementsByClassName('tries')
+            liveHearts.innerHTML = "<img src='images/liveHeart.png' alt='Heart Icon' height='35' width='30'>"
+        }
         //hide the overlay div
         document.getElementById('overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
@@ -58,9 +72,11 @@ class Game{
         let hideCheck = document.getElementsByClassName('hide letter');
         let showCheck = document.getElementsByClassName('show letter');
         if (showCheck.length > 0 && hideCheck.length < 1){
+            console.log(true)
             return true;
         } 
         else {
+            console.log(false)
             return false;
         }
     }
@@ -72,28 +88,21 @@ class Game{
     */
 
     removeLife(){
-        if(this.missed <= 5){
+        if(this.missed < 5){
             const liveHearts = document.getElementsByClassName('tries')
             //converts liveHearts HTML collection to array
             let arrLive = [...liveHearts];
-            let firstLive;
+            //sets arrLive index equal to this.missed count
+            let firstLive = arrLive[this.missed];
             this.missed += 1;
-            console.log(this.missed)
-
-            function findLiveHearts(live){
-                return live.innerHTML = "<img src='images/liveHeart.png' alt='Heart Icon' height='35' width='30'>";
-            }
-            firstLive = arrLive.find(findLiveHearts)
-            console.log(firstLive) 
             let string = firstLive.innerHTML
             let replace = string.replace("liveHeart", "lostHeart");
+            //replaces innerHTML of arrLive element at specified index
             firstLive.innerHTML = `${replace}`;
-            console.log(replace)
         }    
         else {
-            this.gameOver();
-        }
- 
+            this.gameOver(false);
+        } 
     }
 
     /**
@@ -102,13 +111,46 @@ class Game{
      */
 
     gameOver(gameWon){
-
-
+        const overlay = document.getElementById('overlay')
+        overlay.style.display = 'flex';
+        if (!gameWon){
+            overlay.className = 'lose';
+            overlay.querySelector('#game-over-message').innerText = "Game over, better luck next time!";
+        }
+        else {
+            overlay.className= 'win';
+            overlay.querySelector('#game-over-message').innerText = "You won, great job!";
+        }
     }
 
-
-    handleInteraction(){
-
+    /**
+     * Handles onscreen keyboard button clicks
+     * @param {HTMLButtonElement} button - the clicked button element
+     */
+    handleInteraction(button){
+        console.log(button)
+        button.disabled = true;
+        //disable the selected letter's onscreen keyboard button
+        let check = game.activePhrase.checkLetter(button.textContent);
+        console.log(check)
+        //if letter guess is NOT included in phrase, add 'wrong' CSS class
+            //to the letter's keyboard button && call removeLife()
+        if (check === false){
+            button.classList ='wrong'
+            this.removeLife();
+        }
+        else {
+        //if letter gues IS included in phrase, add 'chosen' CSS class
+            button.classList ='chosen'
+            //call showMatchedLetter on the phrase
+            game.activePhrase.showMatchedLetter(button.textContent)
+            //if checkForWin returns true, call gameOver(true)
+            this.checkForWin()
+            console.log(this.checkForWin())
+                if (this.checkForWin()){
+                    this.gameOver(true);
+                }
+        }
     }
 
 
