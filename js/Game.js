@@ -14,6 +14,7 @@ class Game{
      * Creates phrase for use in game
      * @return {array} An Array of phrases that could be used in the game
      */
+
     createPhrases(){
         let phrases = [
             {phrase: 'could i be wearing anymore clothes'},
@@ -55,7 +56,6 @@ class Game{
             }
             //reset heart images
             const liveHearts = document.getElementsByClassName('tries')
-            console.log(liveHearts)
             for (let x = 0; x < liveHearts.length; x ++){
                 liveHearts[x].innerHTML = "<img src='images/liveHeart.png' alt='Heart Icon' height='35' width='30'>"
             }
@@ -77,11 +77,9 @@ class Game{
         let hideCheck = document.getElementsByClassName('hide letter');
         let showCheck = document.getElementsByClassName('show letter');
         if (showCheck.length > 0 && hideCheck.length < 1){
-            console.log(true)
             return true;
         } 
         else {
-            console.log(false)
             return false;
         }
     }
@@ -132,12 +130,11 @@ class Game{
      * Handles onscreen keyboard button clicks
      * @param {HTMLButtonElement} button - the clicked button element
      */
+
     handleInteraction(button){
-        console.log(button)
         button.disabled = true;
         //disable the selected letter's onscreen keyboard button
         let check = game.activePhrase.checkLetter(button.textContent);
-        console.log(check)
         //if letter guess is NOT included in phrase, add 'wrong' CSS class
             //to the letter's keyboard button && call removeLife()
         if (check === false){
@@ -151,12 +148,9 @@ class Game{
             game.activePhrase.showMatchedLetter(button.textContent)
             //if checkForWin returns true, call gameOver(true)
             this.checkForWin()
-            console.log(this.checkForWin())
                 if (this.checkForWin()){
-                    this.gameOver(true);
+                this.gameOver(true);
                 }
         }
     }
-
-
 }
