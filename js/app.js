@@ -29,12 +29,12 @@ function keydown(){
     document.body.addEventListener('keydown', anyKey)
 }
 
-function anyKey(e){
-    let target = e.currentTarget;
-    let char = e.char || e.charCode || e.which;
-    let button = String.fromCharCode(char).toLowerCase();
-    console.log(button);
-    clickKeys;
+function anyKey(evt){
+    let target = evt.currentTarget;
+    let char = evt.char || evt.charCode || evt.which;
+    let e = String.fromCharCode(char).toLowerCase();
+    console.log(e);
+    clickKeys(e);
 }
 
 keydown()
