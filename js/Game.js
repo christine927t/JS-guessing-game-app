@@ -42,18 +42,23 @@ class Game{
 
     startGame(){
         //remove all 'li' elements in 'ul'
-        let phraseLetters = document.querySelectorAll('ul li');
-        console.log(phraseLetters)
+        const phraseLetters = document.querySelectorAll('ul li');
         if (phraseLetters.length > 0){
-            phraseLetters.style.display = 'none';
-            //enable all buttons
-            const button = document.getElementsByClassName('key')
-            button.disabled = false;
-            // update classes to 'key'
-            button.classList = 'key';
+            for (let i = 0; i < phraseLetters.length; i ++){
+                phraseLetters[i].style.display = 'none';
+            }
+            // update classes to 'key' && enables all buttons
+            const buttons = document.querySelectorAll('button')
+            for (let y = 0; y < buttons.length; y ++) {
+                buttons[y].className = 'key';
+                buttons[y].disabled = false;
+            }
             //reset heart images
             const liveHearts = document.getElementsByClassName('tries')
-            liveHearts.innerHTML = "<img src='images/liveHeart.png' alt='Heart Icon' height='35' width='30'>"
+            console.log(liveHearts)
+            for (let x = 0; x < liveHearts.length; x ++){
+                liveHearts[x].innerHTML = "<img src='images/liveHeart.png' alt='Heart Icon' height='35' width='30'>"
+            }
         }
         //hide the overlay div
         document.getElementById('overlay').style.display = 'none';
