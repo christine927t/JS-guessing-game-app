@@ -91,7 +91,9 @@ class Game{
     */
 
     removeLife(){
+        let span = document.createElement("span");//create span
         if(this.missed < 5){
+            span.style.display = 'none'; //hiding span
             const liveHearts = document.getElementsByClassName('tries')
             //converts liveHearts HTML collection to array
             let arrLive = [...liveHearts];
@@ -102,6 +104,13 @@ class Game{
             let replace = string.replace("liveHeart", "lostHeart");
             //replaces innerHTML of arrLive element at specified index
             firstLive.innerHTML = `${replace}`;
+
+            let scoreboard = document.getElementById("scoreboard")
+            span.className = "heart-span" //adding class name to span
+            span.style.display = "block"
+            let x = 5;
+            span.textContent = (x - this.missed + " lives left ") //setting text
+            scoreboard.appendChild(span) //appending to page
         }    
         else {
             this.gameOver(false);

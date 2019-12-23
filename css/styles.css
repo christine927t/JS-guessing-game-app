@@ -8,9 +8,11 @@
   --color-lose: #D94545;
   --color-start: #5b85b7;
   --color-neutral: #445069;
-  --color-neutral-light: #D2D2D2;
+  /* --color-neutral-light: rgb(59, 58, 58); */
+  --color-neutral-light: rgb(207, 230, 195);
   --color-keys: #37474F;
-  --color-keys-light: #E5E5E5;
+  /* --color-keys-light: #E5E5E5; */
+  --color-keys-light: #ffffff;
   --font-size-large: 60px;
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
@@ -54,6 +56,7 @@ button {
   font-size: var(--font-size-medium);
   background-color: var(--color-keys-light);
   border-radius: 5px;
+  border: .75px solid #3a3f58;
   -webkit-transition: var(--transition);
   -o-transition: var(--transition);
   transition: var(--transition);
@@ -107,11 +110,10 @@ button {
   width: 15px;
 }
 
-
-
 .show {
   color: #fff;
-  background-color: #4ac0d5;
+  /* background-color: #4ac0d5; */
+  background-color: rgb(147, 206, 116);
   font-size: 20px;
   height: 65px;
   width: 65px;
@@ -131,14 +133,16 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  /* background: #3a3f58; */
+  background-color: rgb(147, 206, 116);
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
 }
 
 .wrong {
-  background: #f7a964;
+  /* background: #f7a964; */
+  background: #3a3f58;
   color: #FFFFFF;
 }
 
@@ -157,6 +161,12 @@ button {
   padding: 14px 16px 16px 14px;
   border-bottom: solid 4px rgba(0, 0, 0, 0);
   border-right: solid 3px rgba(0, 0, 0, 0);
+}
+
+/* Hearts */
+.heart-span {
+  color: blueviolet;
+  /* display: block; */
 }
 
 
@@ -180,7 +190,9 @@ button {
 }
 
 .start {
-  background-color: #3a3f58;
+  /* background-color: #0420ad; */
+  background-color: rgb(1, 69, 109);
+  /* background-color: #3a3f58; */
 }
 
 .start a {
