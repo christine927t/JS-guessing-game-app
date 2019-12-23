@@ -4,6 +4,7 @@
 
 
 let game;
+//let button;
 const qwerty = document.getElementById('qwerty');
 
 document.getElementById('btn__reset').addEventListener('click', function(){
@@ -19,10 +20,11 @@ function clickKeys(e){
 qwerty.addEventListener('click', clickKeys);
 
 //adds event listener to each key in qwerty keyboard && document
+let button = document.getElementsByClassName('key');
+
 function keyUp(){
-    let keys = document.getElementsByClassName('key');
-    for (key of keys) {
-        key.addEventListener('keyup', pressKey)
+    for (b of button) {
+        b.addEventListener('keyup', pressKey)
     }
     document.body.addEventListener('keyup', pressKey)
 }
@@ -32,8 +34,16 @@ function pressKey(evt){
     let tag = target.tagName;
     let char = evt.char || evt.charCode || evt.which;
     let e = String.fromCharCode(char).toLowerCase();
-    console.log(e, tag);
-    game.handleInteraction(e);
+
+    let bArray = Array.from(button)
+    for (let i = 0; i < bArray.length; i++){
+        if (bArray[i].textContent === e) {
+            console.log(bArray[i].textContent)
+            console.log(e)
+            game.handleInteraction(bArray[i])
+        }
+    }
+
 }
 
 keyUp()
