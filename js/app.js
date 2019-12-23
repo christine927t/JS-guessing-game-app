@@ -34,12 +34,9 @@ function pressKey(evt){
     let tag = target.tagName;
     let char = evt.char || evt.charCode || evt.which;
     let e = String.fromCharCode(char).toLowerCase();
-
     let bArray = Array.from(button)
     for (let i = 0; i < bArray.length; i++){
         if (bArray[i].textContent === e) {
-            console.log(bArray[i].textContent)
-            console.log(e)
             game.handleInteraction(bArray[i])
         }
     }
