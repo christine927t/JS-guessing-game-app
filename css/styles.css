@@ -164,9 +164,19 @@ button {
 }
 
 /* Hearts */
-.heart-span {
-  color: blueviolet;
-  /* display: block; */
+#heart-span {
+  color:  rgb(1, 69, 109);
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 

@@ -59,6 +59,8 @@ class Game{
             for (let x = 0; x < liveHearts.length; x ++){
                 liveHearts[x].innerHTML = "<img src='images/liveHeart.png' alt='Heart Icon' height='35' width='30'>"
             }
+            let span = document.getElementById("heart-span")
+            span.style.display = "none"
         }
         //hide the overlay div
         document.getElementById('overlay').style.display = 'none';
@@ -91,9 +93,13 @@ class Game{
     */
 
     removeLife(){
-        let span = document.createElement("span");//create span
+        //let span = document.createElement("span");//create span for 'lives' counter
+        let span = document.getElementById("heart-span")
+        let scoreboard = document.getElementById("scoreboard").appendChild(span)
+        span.style.display = "none"
+        let x = 5;
+
         if(this.missed < 5){
-            span.style.display = 'none'; //hiding span
             const liveHearts = document.getElementsByClassName('tries')
             //converts liveHearts HTML collection to array
             let arrLive = [...liveHearts];
@@ -105,12 +111,9 @@ class Game{
             //replaces innerHTML of arrLive element at specified index
             firstLive.innerHTML = `${replace}`;
 
-            let scoreboard = document.getElementById("scoreboard")
-            span.className = "heart-span" //adding class name to span
+            //dislays 'lives' counter to scoreboard
             span.style.display = "block"
-            let x = 5;
-            span.textContent = (x - this.missed + " lives left ") //setting text
-            scoreboard.appendChild(span) //appending to page
+            span.textContent = (x - this.missed + " live(s) left ") //setting text
         }    
         else {
             this.gameOver(false);

@@ -45,7 +45,6 @@
         }
     }
 
-
      /**
       * Displays passed letter on screen after a
       * match is found
