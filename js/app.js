@@ -28,6 +28,7 @@ function keyUp(){
     document.body.addEventListener('keyup', pressKey)
 }
 
+//handles results of pressing a key on your physical keyboard
 function pressKey(evt){
     let target = evt.currentTarget;
     let char = evt.char || evt.charCode || evt.which;
