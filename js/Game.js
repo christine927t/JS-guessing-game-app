@@ -99,7 +99,7 @@ class Game{
         span.style.display = "none"
         let x = 5;
 
-        if(this.missed < 5){
+        if(this.missed < 4){
             const liveHearts = document.getElementsByClassName('tries')
             //converts liveHearts HTML collection to array
             let arrLive = [...liveHearts];
